@@ -1,0 +1,25 @@
+---
+title: "Building process for 'Advanced R'"
+author: "Hee-Seung, Kim"
+date: "9/13/2018"
+output: pdf_document
+knit: bookdown::render_book('HW2-2_Hee.Rmd','bookdown::pdf_document2')
+---
+ 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Explaination of Building Process
+- Follow the instruction at <https://bookdown.org/yihui/bookdown/get-started.html> 
+- Actually, although we can fix most error by downloading the packages from Tools in RStudio, there were some problems during building this process.
+
+## Problem 1
+devtool <- CRAN does not support this package, so we have to install it directly from 'github' using `'devtool::install_github()'`.
+
+## Problem 2
+the latest version of Rtools <- In my case, I installed the latest version of Rtools 3.5.1 for building process
+
+## Problem 3
+system.time(mclapply(1:10, pause(0.25), mc.cores = cores)) is not support by Windows. I followed the recommendation of one of the students. I did first set up a local cluster and then use `parLapply(): \indexc{mclapply()} \indexc{parLapply()}`
